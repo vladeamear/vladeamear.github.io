@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>[ПРОТОТИП] Интересное Поблизости</title>
+</head>
+<body>
+    <div class="main">
+        <!--  -->
+        <div class="login" style="display: none;">
+            <div class="l-block shown">
+                <h1 class="logo">Интересное Поблизости</h1>
+                <input type="text" id="email" placeholder="e-mail">
+                <input type="password" id="pass" placeholder="Пароль">
+                <input type="button" value="Войти" id="login-btn">
+                <div class="reg">Зарегестрироваться</div>
+            </div>
+            <div class="r-block">
+                <input type="text" id="email" placeholder="e-mail">
+                <input type="password" id="pass" placeholder="Пароль">
+                <div class="flex">
+                    <input type="checkbox" id="ip">
+                    <label for="ip">Я являюсь индивидуальным предпринимателем и хочу продвигать свой бизнес</label>
+                </div>
+                <input type="button" value="Зарегестрироваться" id="login-btn">
+                <div class="log">Войти</div>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tab t-house shown">
+                <div class="post">
+                    <img src="./src/posts/1.jpg">
+                    <p class="post-text">
+                        <span>5 жизней</span>
+                        <br>
+                        <br>
+                        У нас появились новые книги 📚
+                    </p>
+                </div>
+                <div class="post">
+                    <img src="./src/posts/2.jpg">
+                    <p class="post-text">
+                        <span>Mao</span>
+                        <br>
+                        <br>
+                        До нового года 9 дней🎄
+                        <br>
+                        <br>
+                        Наша миссия сформировать сообщество, которое разбирается и ценит действительно уникальный чай, его культуру и состояние, которое он даёт🍵
+                        <br>
+                        <br>
+                        Мы собрали наборы, которые вы можете подарить для того, чтобы познакомить человека с хорошим чаем. А также тем, кто уже разбирается и по достоинству оценит высокий чай🙏
+                    </p>
+                </div>
+                <div class="post">
+                    <img src="./src/posts/3.jpg">
+                    <p class="post-text">
+                        <span>5 жизней</span>
+                        <br>
+                        <br>
+                        НОВЫЕ КОМИКСЫ 📚 УРАА!!!
+                        <br>
+                        <br>
+                        В нашем секонд-хенде вы так же можете найти одежду любых размеров, украшения, кухонную утварь и многое другое!
+                        <br>
+                        <br>
+                        ВСЕ ЧТО УГОДНО МОЖЕТ СТАТЬ ВАШИМ ВСЕГО ЗА 100 РУБЛЕЙ😊 
+                    </p>
+                </div>
+                <div class="post">
+                    <img src="./src/posts/4.jpg">
+                    <p class="post-text">
+                        <span>Mao</span>
+                        <br>
+                        <br>
+                        📚 Вы знали что в Мао есть библиотека из 2500 книг и с каждым днем она пополняется?
+                        <br>
+                        <br>
+                        🤓 Каждый желающий может придти к нам попить чаю и почитать. Вы можете взять любую понравившуюся книгу с собой, это все бескорыстно. Мы рады что вы развиваетесь и нам приятно быть ячейкой развития общества.
+                    </p>
+                </div>
+            </div>
+            <div class="tab t-map" id="map"></div>
+            <div class="tab t-search">
+                <div class="s-block">
+                    <span>Заполните одно из полей</span>
+                    <input type="text" id="s-by-name" placeholder="Название">
+                    <div class="s-res">
+                        <div class="res prev">
+                            <img src="./src/5.jpg" alt="5 жизней">
+                            <span>5 жизней</span>
+                        </div>
+                        
+                        <div class="res">
+                            <img src="./src/100.jpg" alt="100 одежек">
+                            <span>100 одежек</span>
+                        </div>
+                        <div class="res">
+                            <img src="./src/mh.jpg" alt="5 жизней">
+                            <span>Мега хенд</span>
+                        </div>
+                    </div>
+                    <div class="posts-inside">
+                        <div class="post">
+                            <img src="./src/posts/1.jpg">
+                            <p class="post-text">
+                                <span>5 жизней</span>
+                                <br>
+                                <br>
+                                У нас появились новые книги 📚
+                            </p>
+                        </div>
+                        <div class="post">
+                            <img src="./src/posts/3.jpg">
+                            <p class="post-text">
+                                <span>5 жизней</span>
+                                <br>
+                                <br>
+                                НОВЫЕ КОМИКСЫ 📚 УРАА!!!
+                                <br>
+                                <br>
+                                В нашем секонд-хенде вы так же можете найти одежду любых размеров, украшения, кухонную утварь и многое другое!
+                                <br>
+                                <br>
+                                ВСЕ ЧТО УГОДНО МОЖЕТ СТАТЬ ВАШИМ ВСЕГО ЗА 100 РУБЛЕЙ😊 
+                            </p>
+                        </div>
+                    </div>
+                    <input type="text" id="s-by-type" placeholder="Тип">
+                    <div class="s-res">
+                        <div class="res prev">Секонд хенд</div>
+                        <div class="res">Кафе и рестораны</div>
+                        <div class="res">Театры и кинотеатры</div>
+                    </div>
+                    <input type="text" id="s-by-city" placeholder="Город">
+                    <div class="s-res">
+                        <div class="res prev">Саранск</div>
+                        <div class="res">Нижний Новгород</div>
+                        <div class="res">Москва</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab t-add">
+                <form>
+                    <input type="button" value="Выберите изображение">
+                    <textarea cols="30" rows="10" placeholder="Текст поста"></textarea>
+                    <input type="number" min="1" max="7" step="1" id="days" placeholder="Кол-во дней актуальности">
+                    <input type="button" value="Готово">
+                </form>
+            </div>
+            <div class="navbar">
+                <div class="t-btn house is-active" data-t-name="t-house"></div>
+                <div class="t-btn map" data-t-name="t-map"></div>
+                <div class="t-btn search" data-t-name="t-search"></div>
+                <div class="t-btn add" data-t-name="t-add"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
