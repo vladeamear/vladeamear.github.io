@@ -12,6 +12,7 @@ body{
     justify-content: space-around;
 }
 textarea, input{
+    cursor: pointer;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
@@ -105,6 +106,7 @@ input::-webkit-inner-spin-button {
     border-radius: 16px;
 }
 .t-btn{
+    cursor: pointer;
     filter: opacity(.4);
     width: 33px;
     height: 33px;
@@ -257,7 +259,7 @@ input::-webkit-inner-spin-button {
         height: 100vh;
     }
     .o-s-res{
-        height: calc(100vh - 373px);
+        height: calc(100vh - 265px);
     }
     .tab, .login{
         border-radius: 0;
